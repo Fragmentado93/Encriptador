@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const boton2 = document.querySelector('.boton2');
     const boton3 = document.querySelector('.boton3');
     const boton4 = document.querySelector('.boton4');
-    
+        
     // Ocultar boton3 y boton4 cuando cargue la página
     boton3.style.display = 'none';
     boton4.style.display = 'none';
@@ -117,15 +117,29 @@ document.addEventListener('DOMContentLoaded', () => {
         //alert('Texto copiado al portapapeles');
     });
 
-    // Define la URL de la página inicial
-    const paginaInicial = 'prueba.html';
-
+    // Función para configurar las condiciones iniciales
+    function condicionesIniciales() {
+        // Ocultar el botón copiar
+        boton3.style.display = 'none';
+        // Ocultar el botón restaurar
+        boton4.style.display = 'none';
+        // Mostrar el contenedor de salida
+        ocultar.style.display = 'block';
+        // Establecer el texto predeterminado
+        caja.value = textoPredeterminado;
+        // Limpiar caja2
+        caja2.value = '';
+    }
+    
     // Función para restaurar a la página inicial
     function restaurarPagina() {
-        window.location.href = paginaInicial; // Redirige a la página inicial
+        condicionesIniciales();
     }
 
     // Configura el evento de clic para el botón de restaurar
     boton4.addEventListener('click', restaurarPagina);
+
+    // Configurar condiciones iniciales cuando la página carga
+    condicionesIniciales();
 
 });
